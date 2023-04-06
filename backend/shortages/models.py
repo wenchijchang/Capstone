@@ -1,14 +1,14 @@
 from django.db import models
-from users.models import User
+from authentication.models import User
 
 # Create your models here.
 class Shortage(models.Model):
     date = models.DateField()
     medication_name = models.CharField(max_length=255)
-    quantity: models.IntegerField()
-    usage_in_last_30_days = models.IntegerField()
-    remaining_day_supply = models.IntegerField()
+    quantity = models.IntegerField(default=None, null=True)
+    usage_in_last_30_days = models.IntegerField(default=None, null=True)
+    remaining_day_supply = models.IntegerField(default=None, null=True)
     documented_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    is_identified = models.BooleanField(default='Yes')
-    is_confirmed = models.BooleanField(default='No')
-    is_resolved = models.BooleanField(default='No')
+    is_identified = models.BooleanField(default=True)
+    is_confirmed = models.BooleanField(default=False)
+    is_resolved = models.BooleanField(default=False)
