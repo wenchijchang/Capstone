@@ -1,9 +1,11 @@
-# from django.db import models
+from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    superviser_email = models.EmailField(max_length=255, default="superviser@superviser.com")
+    pharmacy_buyer_email = models.EmailField(max_length=255, default="buyer@buyer.com")
+    pyxis_manager_email = models.EmailField(max_length=255, default="pyxis@pyxis.com")
     '''
     This is a custom version of the built in User class
     It contains all of the built in fields and functionality of the standard User

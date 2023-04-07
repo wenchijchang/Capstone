@@ -15,13 +15,18 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         token["username"] = user.username
         token["first_name"] = user.first_name
-
+        token["last_name"] = user.last_name
+        token["email"] = user.email
+        token["superviser_email"] = user.superviser_email
+        token["pharmacy_buyer_email"] = user.pharmacy_buyer_email
+        token["pyxis_manager_email"] = user.pyxis_manager_email
         return token
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True, validators=[
                                    UniqueValidator(queryset=User.objects.all())])
+    
 
     password = serializers.CharField(
         write_only=True, required=True, validators=[validate_password])
@@ -31,7 +36,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         # If added new columns through the User model, add them in the fields
         # list as seen below
         fields = ('username', 'password', 'email',
-                  'first_name', 'last_name',)
+                  'first_name', 'last_name', 'superviser_email', 'pharmacy_buyer_email', 'pyxis_manager_email')
 
     def create(self, validated_data):
 
@@ -40,6 +45,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
+            superviser_email=validated_data['superviser_email'],
+            pharmacy_buyer_email=validated_data['pharmacy_buyer_email'],
+            pyxis_manager_email=validated_data['pyxis_manager_email']
+
 
             # If added new columns through the User model, add them in this
             # create method. Example below:

@@ -5,8 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from .serializers import ShortageSerializer
 from . models import Shortage
-from users.serializers import UserSerializer
-from users.models import User
+
 
 # Create your views here.
 
@@ -14,7 +13,7 @@ from users.models import User
 @permission_classes([IsAuthenticated]) 
 def shortage_list(request):
     shortages = Shortage.objects.all()
-    users = User.objects.all()
+    # users = User.objects.all()
     user_param = request.query_params.get('user')
     
     
@@ -25,7 +24,7 @@ def shortage_list(request):
             return Response(serializer.data)
         else:
             serializer = ShortageSerializer(shortages, many=True)
-            userserializer = UserSerializer(users, many=True)
+            # userserializer = UserSerializer(users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)   
         
     elif request.method == 'POST':
