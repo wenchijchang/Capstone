@@ -20,6 +20,7 @@ const HomePage = () => {
           },
         });
         setCars(response.data);
+        console.log(user);
       } catch (error) {
         console.log(error.response.data);
       }
@@ -28,7 +29,9 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
-      <h1>Home Page for {user.username}!</h1>
+      <h1>
+        Home Page for {user.first_name} {user.last_name}!
+      </h1>
       {cars &&
         cars.map((car) => (
           <p key={car.id}>
