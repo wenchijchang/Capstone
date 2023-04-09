@@ -34,10 +34,11 @@ button:hover {
 }
 
 .container {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   max-width: 600px;
   overflow: auto;
-  text-align: center;
+  /* text-align: left; */
+  padding: 1.5rem 2rem;
 }
 
 .form {
