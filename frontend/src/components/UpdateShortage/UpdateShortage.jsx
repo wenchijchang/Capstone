@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ShortageContext from "../../context/ShortageContext";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
@@ -8,6 +8,9 @@ const UpdateShortage = ({ fetchShortages }) => {
   const { token } = useContext(AuthContext);
   const { shortage } = useContext(ShortageContext);
   const [date, setDate] = useState(shortage.date);
+  const [medicationName, setMedicationName] = useState(
+    shortage.medication_name
+  );
   const [quantity, setQuantity] = useState(shortage.quantity);
   const [usageInLast30Days, setUsageInLast30Days] = useState(
     shortage.usage_in_last_30_days
@@ -21,24 +24,28 @@ const UpdateShortage = ({ fetchShortages }) => {
 
     let updatedShortage = {
       date: date,
+      medication_name: medicationName,
       quantity: quantity,
       usage_in_last_30_days: usageInLast30Days,
       remaining_day_supply: remainingDaySupply,
       is_confirmed: true,
     };
-    const response = await axios.put(
-      `http://127.0.0.1:8000/api/shortages/${shortage.id}/`,
-      updatedShortage,
-      {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
+    try {
+      let response = await axios.put(
+        `http://127.0.0.1:8000/api/shortages/${shortage.id}/`,
+        updatedShortage,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log("Shortage Updated: ", response.data);
+      if (response.status === 200) {
+        await fetchShortages();
       }
-    );
-    debugger;
-    console.log("Shortage Updated: ", response.data);
-    if (response.status === 201) {
-      await fetchShortages();
+    } catch (error) {
+      console.log(error.response.data);
     }
   };
 
