@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import ShortageCard from "../ShortageCard/ShortageCard";
+import AddNewShortage from "../AddShortage/AddShortage";
+import Modal from "../Modal/Modal";
 
 const DisplayShortages = ({ token }) => {
   const [shortages, setShortages] = useState([]);
+  const [ModalOpen, setModalOpen] = useState(false);
 
   const fetchShortages = async () => {
     try {
@@ -13,6 +16,7 @@ const DisplayShortages = ({ token }) => {
           Authorization: "Bearer " + token,
         },
       });
+      //   debugger;
       console.log("API Response: ", response.data);
       setShortages(response.data);
     } catch (error) {
@@ -26,8 +30,18 @@ const DisplayShortages = ({ token }) => {
 
   return (
     <div>
-      {shortages.map((element) => (
-        <ShortageCard shortage={element} />
+      <div style={{ textAlign: "right" }}>
+        <Modal text={"Add New Shortage"}>
+          <AddNewShortage token={token} fetchShortages={fetchShortages} />
+        </Modal>
+      </div>
+      {shortages.map((shortage) => (
+        <ShortageCard
+          token={token}
+          key={shortage.id}
+          shortage={shortage}
+          fetchShortages={fetchShortages}
+        />
       ))}
     </div>
   );
