@@ -1,8 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+import ShortageContext from "../../context/ShortageContext";
+import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import Input from "../Input/Input";
 
-const AddNewShortage = ({ token, fetchShortages }) => {
+const AddNewShortage = ({ fetchShortages }) => {
+  const { token } = useContext(AuthContext);
+  const { setModalOpen } = useContext(ShortageContext);
   const shortageForm = useRef();
   const [date, setDate] = useState("");
   const [medicationName, setMedicationName] = useState("");
@@ -27,9 +31,9 @@ const AddNewShortage = ({ token, fetchShortages }) => {
       }
     );
     console.log("New Shortage Added: ", response.data);
-    debugger;
     if (response.status === 201) {
       await fetchShortages();
+      setModalOpen(false);
     }
     shortageForm.current.reset();
   };

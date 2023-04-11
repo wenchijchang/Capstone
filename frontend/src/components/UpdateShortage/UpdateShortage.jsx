@@ -6,7 +6,7 @@ import Input from "../Input/Input";
 
 const UpdateShortage = ({ fetchShortages }) => {
   const { token } = useContext(AuthContext);
-  const { shortage } = useContext(ShortageContext);
+  const { shortage, setModalOpen } = useContext(ShortageContext);
   const [date, setDate] = useState(shortage.date);
   const [medicationName, setMedicationName] = useState(
     shortage.medication_name
@@ -43,6 +43,7 @@ const UpdateShortage = ({ fetchShortages }) => {
       console.log("Shortage Updated: ", response.data);
       if (response.status === 200) {
         await fetchShortages();
+        setModalOpen(false);
       }
     } catch (error) {
       console.log(error.response.data);

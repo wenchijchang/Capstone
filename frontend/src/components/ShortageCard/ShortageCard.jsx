@@ -1,12 +1,14 @@
 import React, { useState, useContext } from "react";
 import ShortageContext from "../../context/ShortageContext";
+import AuthContext from "../../context/AuthContext";
 import { FcCheckmark } from "react-icons/fc";
 import Modal from "../Modal/Modal";
 import UpdateShortage from "../UpdateShortage/UpdateShortage";
 import DeleteShortage from "../DeleteShortage/DeleteShortage";
 
-const ShortageCard = ({ token, shortage, fetchShortages }) => {
+const ShortageCard = ({ shortage, fetchShortages }) => {
   const { setShortage } = useContext(ShortageContext);
+  const { token } = useContext(AuthContext);
 
   return (
     <div>
@@ -43,7 +45,13 @@ const ShortageCard = ({ token, shortage, fetchShortages }) => {
         </table>
       </li>
       <div style={{ textAlign: "right" }}>
-        <Modal setShortage={setShortage} shortage={shortage} text={"Update"}>
+        <Modal
+          key={shortage.id}
+          setShortage={setShortage}
+          shortage={shortage}
+          text={"Update"}
+          unique={shortage.id}
+        >
           <UpdateShortage fetchShortages={fetchShortages} />
         </Modal>
       </div>

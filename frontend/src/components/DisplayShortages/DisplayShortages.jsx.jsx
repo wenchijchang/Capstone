@@ -7,7 +7,6 @@ import Modal from "../Modal/Modal";
 
 const DisplayShortages = ({ token }) => {
   const [shortages, setShortages] = useState([]);
-  const [ModalOpen, setModalOpen] = useState(false);
 
   const fetchShortages = async () => {
     try {
@@ -31,7 +30,11 @@ const DisplayShortages = ({ token }) => {
   return (
     <div>
       <div style={{ textAlign: "right" }}>
-        <Modal text={"Add New Shortage"}>
+        <Modal
+          key={"main-add-modal"}
+          text={"Add New Shortage"}
+          unique={"main-add-modal"}
+        >
           <AddNewShortage token={token} fetchShortages={fetchShortages} />
         </Modal>
       </div>
