@@ -19,6 +19,11 @@ const UpdateShortage = ({ fetchShortages }) => {
     shortage.remaining_day_supply
   );
 
+  const calculateRemainingDaySupply = () => {
+    let remainingDaySupply = Math.floor(quantity / (usageInLast30Days / 30));
+    setRemainingDaySupply(remainingDaySupply);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -49,6 +54,8 @@ const UpdateShortage = ({ fetchShortages }) => {
       console.log(error.response.data);
     }
   };
+
+  useEffect(() => calculateRemainingDaySupply(), [quantity, usageInLast30Days]);
 
   return (
     <div className="form-group">
@@ -82,10 +89,14 @@ const UpdateShortage = ({ fetchShortages }) => {
           type={"number"}
           value={remainingDaySupply}
           onChange={(event) => setRemainingDaySupply(event.target.value)}
+          disabled
         />
         <button className="button" type="submit">
           Submit
         </button>
+        <p>
+          <em>Press submit will confirm this shortage.</em>
+        </p>
       </form>
     </div>
   );
