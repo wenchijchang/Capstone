@@ -3,6 +3,7 @@ import ShortageContext from "../../context/ShortageContext";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import Input from "../Input/Input";
+import { identifiedShortageEmail } from "../SendEmail/identifiedShortageEmail";
 
 const AddNewShortage = ({ fetchShortages }) => {
   const { token } = useContext(AuthContext);
@@ -32,6 +33,7 @@ const AddNewShortage = ({ fetchShortages }) => {
     );
     console.log("New Shortage Added: ", response.data);
     if (response.status === 201) {
+      identifiedShortageEmail({ medicationName });
       await fetchShortages();
       setModalOpen(false);
     }
