@@ -17,12 +17,11 @@ const ModalBackground = styled.div`
 const ModalBody = styled.div`
   background-color: white;
   width: 500px;
-  height: 500px;
+  height: 580px;
   margin: 10% auto;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 25px;
-
   align-items: center;
   font-size: 1.5rem;
   text-align: center;
@@ -34,6 +33,7 @@ const Modal = ({ children, shortage, setShortage, text, unique }) => {
   return (
     <>
       <button
+        className="modal-open-button"
         onClick={() => {
           setModalKey(unique);
           if (shortage && setShortage) setShortage(shortage);
@@ -45,7 +45,12 @@ const Modal = ({ children, shortage, setShortage, text, unique }) => {
       {modalOpen && unique === modalKey && (
         <ModalBackground onClick={() => setModalOpen(false)}>
           <ModalBody onClick={(event) => event.stopPropagation()}>
-            <button onClick={() => setModalOpen(false)}>Cancel</button>
+            <button
+              className="modal-close-button"
+              onClick={() => setModalOpen(false)}
+            >
+              X
+            </button>
             {children}
           </ModalBody>
         </ModalBackground>

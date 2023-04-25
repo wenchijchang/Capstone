@@ -65,11 +65,10 @@ const UpdateShortage = ({ fetchShortages }) => {
   useEffect(() => calculateRemainingDaySupply(), [quantity, usageInLast30Days]);
 
   return (
-    <div className="form-group">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
         <h3>Update A Shortage</h3>
         <Input
-          className="form-control"
           label={"Date"}
           type={"date"}
           value={date}
@@ -77,21 +76,18 @@ const UpdateShortage = ({ fetchShortages }) => {
           style={{ marginBottom: "1em" }}
         />
         <Input
-          className="form-control"
           label={"Quantity"}
           type={"number"}
           value={quantity}
           onChange={(event) => setQuantity(event.target.value)}
         />
         <Input
-          className="form-control"
           label={"Usage In Last 30 Days"}
           type={"number"}
           value={usageInLast30Days}
           onChange={(event) => setUsageInLast30Days(event.target.value)}
         />
         <Input
-          className="form-control"
           label={"Remaining Day Supply"}
           type={"number"}
           value={remainingDaySupply}

@@ -1,0 +1,10 @@
+.shortage-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 95%;
+  text-align: center;
+}
+
+.shortage-table thead tr {
+  border-bottom: 1px solid black;
+}

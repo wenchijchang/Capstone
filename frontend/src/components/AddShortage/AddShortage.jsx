@@ -41,18 +41,16 @@ const AddNewShortage = ({ fetchShortages }) => {
   };
 
   return (
-    <div className="form-group">
-      <form onSubmit={handleSubmit} ref={shortageForm}>
+    <div>
+      <form className="form" onSubmit={handleSubmit} ref={shortageForm}>
         <h3>Add New Shortage</h3>
         <Input
-          className="form-control"
           label={"Date"}
           type={"date"}
           onChange={(event) => setDate(event.target.value)}
           style={{ marginBottom: "1em" }}
         />
         <Input
-          className="form-control"
           label={"Medication Name"}
           type={"text"}
           onChange={(event) => setMedicationName(event.target.value)}

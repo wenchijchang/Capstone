@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import ShortageTable from "../ShortageTable/ShortageTable";
 import ShortageCard from "../ShortageCard/ShortageCard";
 import AddNewShortage from "../AddShortage/AddShortage";
 import Modal from "../Modal/Modal";
@@ -29,7 +29,7 @@ const DisplayShortages = ({ token }) => {
 
   return (
     <div>
-      <div style={{ textAlign: "right" }}>
+      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
         <Modal
           key={"main-add-modal"}
           text={"Add New Shortage"}
@@ -38,14 +38,19 @@ const DisplayShortages = ({ token }) => {
           <AddNewShortage token={token} fetchShortages={fetchShortages} />
         </Modal>
       </div>
-      {shortages.map((shortage) => (
+      {/* {shortages.map((shortage) => (
         <ShortageCard
           token={token}
           key={shortage.id}
           shortage={shortage}
           fetchShortages={fetchShortages}
         />
-      ))}
+      ))} */}
+      <ShortageTable
+        token={token}
+        shortages={shortages}
+        fetchShortages={fetchShortages}
+      />
     </div>
   );
 };

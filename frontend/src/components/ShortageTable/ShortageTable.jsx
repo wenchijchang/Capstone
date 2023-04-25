@@ -5,36 +5,29 @@ import { FcCheckmark } from "react-icons/fc";
 import Modal from "../Modal/Modal";
 import UpdateShortage from "../UpdateShortage/UpdateShortage";
 import DeleteShortage from "../DeleteShortage/DeleteShortage";
+import "./ShortageTable.css";
 
-const ShortageCard = ({ shortage, fetchShortages }) => {
+const ShortageTable = ({ shortages, fetchShortages }) => {
   const { setShortage } = useContext(ShortageContext);
   const { token } = useContext(AuthContext);
 
   return (
-    <div>
-      {/* <li
-        style={{
-          listStyle: "none",
-          marginBottom: "4em",
-        }}
-      > */}
-      <table
-        className="shortage-table" /* style={{ textAlign: "center", margin: "0 auto" }}*/
-      >
-        <thead>
-          <tr /*style={{ textAlign: "center", margin: "0 auto" }}*/>
-            <td>Date</td>
-            <td>Medication Name</td>
-            <td>Quantity</td>
-            <td>Usage In Last 30 Days</td>
-            <td>Remaining Day Supply</td>
-            <td>Identified</td>
-            <td>Confirmed</td>
-            <td>Documented By</td>
-            <td colSpan={2}>Update/Delete</td>
-          </tr>
-        </thead>
-        <tbody>
+    <table className="shortage-table">
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>Medication Name</td>
+          <td>Quantity</td>
+          <td>Usage In Last 30 Days</td>
+          <td>Remaining Day Supply</td>
+          <td>Identified</td>
+          <td>Confirmed</td>
+          <td>Documented By</td>
+          <td colSpan={2}>Update/Delete</td>
+        </tr>
+      </thead>
+      <tbody>
+        {shortages.map((shortage) => (
           <tr>
             <td>{shortage.date}</td>
             <td>{shortage.medication_name}</td>
@@ -47,7 +40,7 @@ const ShortageCard = ({ shortage, fetchShortages }) => {
               {shortage.documented_by.first_name + " "}
               {shortage.documented_by.last_name}
             </td>
-            <td>
+            <td style={{ display: "flex" }}>
               <Modal
                 key={shortage.id}
                 setShortage={setShortage}
@@ -64,27 +57,10 @@ const ShortageCard = ({ shortage, fetchShortages }) => {
               />
             </td>
           </tr>
-        </tbody>
-      </table>
-      {/* </li> */}
-      {/* <div style={{ textAlign: "right" }}>
-        <Modal
-          key={shortage.id}
-          setShortage={setShortage}
-          shortage={shortage}
-          text={"Update"}
-          unique={shortage.id}
-        >
-          <UpdateShortage fetchShortages={fetchShortages} />
-        </Modal>
-      </div> */}
-      {/* <DeleteShortage
-        token={token}
-        id={shortage.id}
-        fetchShortages={fetchShortages}
-      /> */}
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
-export default ShortageCard;
+export default ShortageTable;
