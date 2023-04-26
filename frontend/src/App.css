@@ -39,11 +39,18 @@ button:hover {
   border-radius: 15px;
 }
 
-/* .modal-open-button {
+.modal-open-button {
   max-width: 75px;
   font-size: 0.75rem;
   border-radius: 15px;
-} */
+}
+
+.modal-open-button-large {
+  max-width: 300px;
+  padding: 5px;
+  font-size: 30px;
+  border-radius: 15px;
+}
 
 .modal-close-button {
   float: right;

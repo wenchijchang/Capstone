@@ -29,11 +29,12 @@ const DisplayShortages = ({ token }) => {
 
   return (
     <div>
-      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+      <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         <Modal
           key={"main-add-modal"}
           text={"Add New Shortage"}
           unique={"main-add-modal"}
+          isSmallButton={false}
         >
           <AddNewShortage token={token} fetchShortages={fetchShortages} />
         </Modal>

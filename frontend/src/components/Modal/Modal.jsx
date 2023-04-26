@@ -27,13 +27,23 @@ const ModalBody = styled.div`
   text-align: center;
 `;
 
-const Modal = ({ children, shortage, setShortage, text, unique }) => {
+const Modal = ({
+  children,
+  shortage,
+  setShortage,
+  text,
+  unique,
+  isSmallButton,
+}) => {
   const { modalOpen, setModalOpen, modalKey, setModalKey } =
     useContext(ShortageContext);
+
   return (
     <>
       <button
-        className="modal-open-button"
+        className={
+          isSmallButton ? "modal-open-button" : "modal-open-button-large"
+        }
         onClick={() => {
           setModalKey(unique);
           if (shortage && setShortage) setShortage(shortage);

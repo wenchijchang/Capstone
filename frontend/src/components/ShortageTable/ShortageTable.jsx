@@ -46,11 +46,7 @@ const ShortageTable = ({ shortages, fetchShortages }) => {
                 setShortage={setShortage}
                 shortage={shortage}
                 text={"Update"}
-                // style={{
-                //   maxWidth: "75px",
-                //   fontSize: "0.75rem",
-                //   borderRadius: "15px",
-                // }}
+                isSmallButton={true}
                 unique={shortage.id}
               >
                 <UpdateShortage fetchShortages={fetchShortages} />
