@@ -40,7 +40,7 @@ const ShortageTable = ({ shortages, fetchShortages }) => {
               {shortage.documented_by.first_name + " "}
               {shortage.documented_by.last_name}
             </td>
-            <td style={{ display: "flex", justifyContent: "space-between" }}>
+            <td style={{ display: "flex", justifyContent: "space-evenly" }}>
               <Modal
                 key={shortage.id}
                 setShortage={setShortage}
