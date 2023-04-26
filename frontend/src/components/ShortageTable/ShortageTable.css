@@ -20,8 +20,9 @@
 
 .shortage-table tbody tr td {
   padding: 5px;
+  color: hsl(207 44% 20% / 1);
 }
 
 .shortage-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: hsl(207 44% 96% / 1);
 }

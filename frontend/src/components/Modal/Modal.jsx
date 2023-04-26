@@ -25,6 +25,7 @@ const ModalBody = styled.div`
   align-items: center;
   font-size: 1.5rem;
   text-align: center;
+  color: hsl(207 44% 20% / 1);
 `;
 
 const Modal = ({
