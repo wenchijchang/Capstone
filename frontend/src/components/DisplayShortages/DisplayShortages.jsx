@@ -38,14 +38,6 @@ const DisplayShortages = ({ token }) => {
           <AddNewShortage token={token} fetchShortages={fetchShortages} />
         </Modal>
       </div>
-      {/* {shortages.map((shortage) => (
-        <ShortageCard
-          token={token}
-          key={shortage.id}
-          shortage={shortage}
-          fetchShortages={fetchShortages}
-        />
-      ))} */}
       <ShortageTable
         token={token}
         shortages={shortages}

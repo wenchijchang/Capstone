@@ -33,9 +33,20 @@ button:hover {
   background-color: steelblue;
 }
 
+.delete-button {
+  max-width: 75px;
+  font-size: 0.75rem;
+  border-radius: 15px;
+}
+
+/* .modal-open-button {
+  max-width: 75px;
+  font-size: 0.75rem;
+  border-radius: 15px;
+} */
+
 .modal-close-button {
-  display: flex;
-  justify-content: flex-end;
+  float: right;
   background-color: transparent;
   border: none;
   font-size: 25px;

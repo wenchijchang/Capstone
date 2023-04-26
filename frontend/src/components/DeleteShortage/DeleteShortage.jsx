@@ -20,7 +20,7 @@ const DeleteShortage = ({ id, token, fetchShortages }) => {
   };
   return (
     <div style={{ textAlign: "right" }}>
-      <button className="button" onClick={(e) => handleClick(e)}>
+      <button className="delete-button" onClick={(e) => handleClick(e)}>
         Delete
       </button>
     </div>
