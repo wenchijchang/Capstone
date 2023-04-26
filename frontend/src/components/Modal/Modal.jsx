@@ -17,7 +17,7 @@ const ModalBackground = styled.div`
 const ModalBody = styled.div`
   background-color: white;
   width: 500px;
-  height: 550px;
+  max-height: fit-content;
   margin: 10% auto;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
