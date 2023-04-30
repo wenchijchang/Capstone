@@ -8,7 +8,7 @@
 
 .shortage-table thead tr {
   border-bottom: 1px solid black;
-  background-color: steelblue;
+  background-color: #044b87;
   color: white;
   font-weight: bold;
 }
@@ -20,9 +20,10 @@
 
 .shortage-table tbody tr td {
   padding: 5px;
-  color: hsl(207 44% 20% / 1);
+  color: hsl(207, 92%, 10%);
 }
 
 .shortage-table tbody tr:nth-child(even) {
-  background-color: hsl(207 44% 96% / 1);
+  /* background-color: hsl(207 44% 96% / 1); */
+  background-color: hsl(207 94% 97% / 1);
 }

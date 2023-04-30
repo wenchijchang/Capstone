@@ -1,15 +1,26 @@
-ul {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-}
-
-li {
-  font-size: 1.25rem;
-}
-
 .navBar {
-  background: steelblue;
+  position: relative;
+  background: hsla(0, 0%, 100%, 1);
+
+  background: radial-gradient(
+    circle,
+    hsla(0, 0%, 100%, 1) 0%,
+    hsla(207, 94%, 27%, 1) 70%
+  );
+
+  background: -moz-radial-gradient(
+    circle,
+    hsla(0, 0%, 100%, 1) 0%,
+    hsla(207, 94%, 27%, 1) 70%
+  );
+
+  background: -webkit-radial-gradient(
+    circle,
+    hsla(0, 0%, 100%, 1) 0%,
+    hsla(207, 94%, 27%, 1) 70%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#044B87", GradientType=1 );
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
@@ -20,16 +31,24 @@ li {
   background: transparent;
   border: 2px solid white;
   color: white;
-  padding: 0.4rem 0.5rem;
+  position: absolute;
+  right: 40px;
+  top: 25px;
 }
 
 .navBar button:hover {
   background: white;
-  color: steelblue;
+  color: #044b87;
   cursor: pointer;
 }
 
+.navBar img {
+  position: absolute;
+  right: 720px;
+  top: 7px;
+}
+
 .brand {
-  cursor: pointer;
   font-size: 2rem;
+  color: white;
 }

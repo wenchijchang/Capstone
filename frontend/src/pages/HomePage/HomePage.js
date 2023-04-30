@@ -31,9 +31,9 @@ const HomePage = () => {
   return (
     <div>
       <div className="container">
-        <h2>
+        <h3>
           Home Page for {user.first_name} {user.last_name}
-        </h2>
+        </h3>
       </div>
 
       {/* <div className="container">
