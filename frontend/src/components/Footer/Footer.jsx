@@ -3,7 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <p>Created by Wenchi Jennifer Chang</p>{" "}
+      <p>© 2023 Wenchi Jennifer Chang</p>{" "}
     </footer>
   );
 };

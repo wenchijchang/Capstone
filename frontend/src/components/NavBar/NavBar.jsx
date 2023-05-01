@@ -10,15 +10,25 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="navBar">
-      <div className="brand">
+      <div className="brand" style={{ flexBasis: "33%" }}>
         <b>Medication Shortage</b>
       </div>
-      <img src={logo} alt="logo" width={100} height={80} />
-      {user ? (
-        <button onClick={logoutUser}>Logout</button>
-      ) : (
-        <button onClick={() => navigate("/login")}>Login</button>
-      )}
+      <div style={{ flexBasis: "33%", marginLeft: "-1.3rem" }}>
+        <img
+          src={logo}
+          alt="logo"
+          width={100}
+          height={80}
+          style={{ width: "auto" }}
+        />
+      </div>
+      <div>
+        {user ? (
+          <button onClick={logoutUser}>Logout</button>
+        ) : (
+          <button onClick={() => navigate("/login")}>Login</button>
+        )}
+      </div>
     </div>
   );
 };

@@ -6,11 +6,11 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: "IBM Plex Serif", serif;
 }
 
 html {
   box-sizing: border-box;
-  font-family: "IBM Plex Serif", serif;
 }
 
 p {
@@ -94,7 +94,7 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
-  color: hsl(207, 92%, 10%);
+  color: hsl(207, 92%, 10%) !important;
 }
 
 .form label {
