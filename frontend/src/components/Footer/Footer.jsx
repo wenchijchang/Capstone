@@ -3,7 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <p>© 2023 Wenchi Jennifer Chang</p>{" "}
+      <h4>© 2023 Wenchi Jennifer Chang</h4>{" "}
     </footer>
   );
 };
