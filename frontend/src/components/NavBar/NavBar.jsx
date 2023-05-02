@@ -12,6 +12,7 @@ const Navbar = () => {
     <div className="navBar">
       <div className="brand" style={{ flexBasis: "33%" }}>
         <b>Medication Shortage</b>
+        <i style={{ fontSize: "12px" }}>Track&Plan</i>
       </div>
       <div style={{ flexBasis: "33%", marginLeft: "-1.3rem" }}>
         <img
